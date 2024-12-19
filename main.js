@@ -13,6 +13,7 @@ class Player {
     constructor() {
         this.velocity = { x: 0, y: 0 };
         this.opacity = 1;
+        this.ready = false;
         const image = new Image();
         image.src = "./images/PlayerShip.png";
         image.onload = () => {
@@ -24,6 +25,7 @@ class Player {
                 x: canvas.width / 2 - this.width / 2,
                 y: canvas.height - this.height - 20
             };
+            this.ready = true;
         };
     }
 
@@ -284,6 +286,11 @@ function endGame() {
 
 // Merged both of our codes
 function animate() {
+    if (!player.ready) {
+        requestAnimationFrame(animate);
+        return;
+    }
+    
     if (gameOver) {
         ctx.fillStyle = "black";
         ctx.fillRect(0, 0, canvas.width, canvas.height);
@@ -379,7 +386,4 @@ function animate() {
     }
 }
 
-window.onload = (event) => {
-    console.log("All good!");
-    animate();
-}
+animate();
