@@ -15,7 +15,7 @@ class Player {
         this.opacity = 1;
         this.ready = false;
         const image = new Image();
-        image.src = "./images/PlayerShip.png";
+        image.src = "./images/PlayerShip.PNG";
         image.onload = () => {
             const scale = 0.30;
             this.image = image;
@@ -290,7 +290,7 @@ function animate() {
         requestAnimationFrame(animate);
         return;
     }
-    
+
     if (gameOver) {
         ctx.fillStyle = "black";
         ctx.fillRect(0, 0, canvas.width, canvas.height);
