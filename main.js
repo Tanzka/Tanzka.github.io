@@ -379,4 +379,7 @@ function animate() {
     }
 }
 
-animate();
+window.onload = (event) => {
+    console.log("All good!");
+    animate();
+}
